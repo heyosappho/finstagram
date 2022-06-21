@@ -1,21 +1,21 @@
 def humanized_time_ago(minute_num)
-    if time_ago_in_minutes >= 60
-        "#{time_ago_in_minutes / 60} hours ago"
+    if minute_num >= 60
+        "#{minute_num / 60} hours ago"
     else
-        "#{time_ago_in_minutes} minutes ago"
+        "#{minute_num} minutes ago"
     end
 end
 
 
 get '/' do
  @finstagram_post_shark = {
-    username = "sharky_j",
-    avatar_url = "http://naserca.com/image/sharky_j.jpg",
-    photo_url = "http://naserva.com/image/shark.jpg",
+    username: "sharky_j",
+    avatar_url: "http://naserca.com/image/sharky_j.jpg",
+    photo_url: "http://naserva.com/image/shark.jpg",
     humanized_time_ago: humanized_time_ago(15),
-    like_count = 0,
-    comment_count = 1,
-    comments = [{
+    like_count: 0,
+    comment_count: 1,
+    comments: [{
         username: "sharky_j",
         text: "Out for the long weekend...too embarrassed to show y'all the beach bod!"
  }] 
@@ -39,17 +39,16 @@ get '/' do
     avatar_url: "http://naserca.com/image/marlin_peppa.jpg",
     photo_url: "http://naserca.com/image/marlin.jpg",
     humanized_time_ago: humanized_time_ago(190),
-    like_count: 0
-    comment_count: 1
+    like_count: 0,
+    comment_count: 1,
     comments: [{
         username: "marlin_peppa",
         text: "lunchtime ;)"
     }]
-
  }
 
- [@finstagram_post_shark, @finstagram_post_whale, @finstagram_post_marlin].to_s
+@finstagram_posts = [@finstagram_post_shark, @finstagram_post_whale, @finstagram_post_marlin]
+
  erb(:index)
 end
-
 
