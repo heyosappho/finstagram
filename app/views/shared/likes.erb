@@ -2,7 +2,7 @@
 <% if current_user %>
 
     <!-- check to see if user already has a like for given finstagram post -->
-    <% if like = current_user.likes.find_by({ finstagram_post_id: finstagram_post_id }) %>
+    <% if like = current_user.likes.find_by({ finstagram_post_id: finstagram_post.id }) %>
 
         <!-- display a form to delete that like the user already have --> 
         <form action="/likes/<%= like.id %>" method="POST">
